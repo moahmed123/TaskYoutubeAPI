@@ -1,0 +1,136 @@
+/* .App{
+
+} */
+body{
+    background-color: #f3f3f3;
+}
+.container{
+    width: 1400px;
+    margin: 0 auto;
+    display: block;
+}
+.sub--container{    
+    width: 1000px;
+    margin: 0 auto;
+    display: block;
+    padding: 35px;
+}
+.App-header{
+    background: #fff;
+    position: relative;  
+}
+.sticky  {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    flex: 1;
+    text-align: center;
+}
+
+.form--search{
+    flex: 7;
+}
+.form--search input[type="text"],
+.form--search input[type="text"]:hover,
+.form--search input[type="text"]:focus,
+.form--search input[type="text"]:active  {
+    height: 40px;
+    position: relative;
+    width: 70%;
+    padding: 0;
+    border-color: #efefef;
+    box-shadow: none;
+    border-width: 1px;
+    border-style: solid;
+    padding: 0 10px;
+    font-size: 20px;
+}
+.form--search input[type="text"]:focus-visible{
+    outline: #ddd auto 1px;
+}
+.form--search input[type="submit"]{
+    height: 40px;
+    border: none;
+    padding: 0px 20px;
+    margin: 0 2px;
+  
+}
+.enter-name{
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px 0;
+    border-radius: 5px;
+    margin-top: 10%;
+    color: #464040;
+    text-transform: capitalize;
+}
+.colection--box{
+    display: flex;
+    margin-bottom: 15px;
+}
+.box--image{
+    flex: 1;
+    padding: 0 10px;
+}
+.box--data{
+    flex: 3;
+    padding: 0 10px;
+}
+.box--data h4{
+    margin: 10px 0;
+    font-size: 20px;
+}
+.box--data p{
+    font-size: 17px;
+    color: #949292;
+    line-height: 27px;
+}
+
+
+  
+/* simple media query  */
+@media (max-width: 1400px){
+    .container {
+        width: 1200px;        
+    }
+    .sub--container{
+        width: 80%; 
+    }
+}
+@media (max-width: 1200px){
+    .container {
+        width: 991px;        
+    }
+    .sub--container{
+        width: 80%; 
+    }
+}
+@media (max-width: 991px){
+    .container {
+        width: 80%;        
+    }
+    .sub--container{
+        width: 80%; 
+    }
+}
+@media (max-width: 480px){
+    .container {
+        width: 100%;        
+    }
+    .sub--container{
+        width: 100%; 
+    }
+}
