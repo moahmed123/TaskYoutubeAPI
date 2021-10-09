@@ -1,3 +1,5 @@
+## Get Key For Youtube 
+you need to create an app to use API, you need to add this key on this Path src/components/Search.js` (https://console.cloud.google.com).
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -17,4 +19,3 @@ You will also see any lint errors in the console.
 
 ### `npm build`
 
-### `add key on this Path src/components/Search.js`
