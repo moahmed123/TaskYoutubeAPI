@@ -62,6 +62,7 @@ body{
     border: none;
     padding: 0px 20px;
     margin: 0 2px;
+    cursor: pointer;
   
 }
 .enter-name{
@@ -123,7 +124,24 @@ body{
         width: 80%;        
     }
     .sub--container{
-        width: 80%; 
+        width: 100%; 
+        padding: 20px 0;
+    }
+    .box--image,
+    .box--data{
+        flex: 1;
+    }
+    .box--image img{
+        width: 100%;
+    }
+    .App-header .container{
+        width: 100%;
+    }
+    .form--search input[type="text"], .form--search input[type="text"]:hover, .form--search input[type="text"]:focus, .form--search input[type="text"]:active{
+        width: 55%;
+    }
+    .form--search input[type="submit"]{
+        padding: 0px 10px;
     }
 }
 @media (max-width: 480px){
