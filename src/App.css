@@ -18,6 +18,7 @@ body{
 .App-header{
     background: #fff;
     position: relative;  
+    padding: 15px;
 }
 .sticky  {
     position: fixed;
@@ -26,18 +27,27 @@ body{
     right: 0;
     z-index: 1;
   }
+
 .row{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.App-header .row{
+    width: 1000px;
+    margin: 0 auto;    
+}
 .logo{
     flex: 1;
     text-align: center;
 }
-
+.logo svg:not(:root) {
+    width: 115px;
+}
 .form--search{
-    flex: 7;
+    flex: 4;
+    display: flex;
+    position: relative;
 }
 .form--search input[type="text"],
 .form--search input[type="text"]:hover,
@@ -45,9 +55,9 @@ body{
 .form--search input[type="text"]:active  {
     height: 40px;
     position: relative;
-    width: 70%;
+    flex: 1;
     padding: 0;
-    border-color: #efefef;
+    border-color: #ddd;
     box-shadow: none;
     border-width: 1px;
     border-style: solid;
@@ -56,15 +66,25 @@ body{
 }
 .form--search input[type="text"]:focus-visible{
     outline: #ddd auto 1px;
+    outline: none;    
 }
-.form--search input[type="submit"]{
-    height: 40px;
-    border: none;
-    padding: 0px 20px;
-    margin: 0 2px;
-    cursor: pointer;
-  
+.form--search input[type="submit"] { 
+    height: 43px;
+    border: none;        
+    cursor: pointer; 
+    background: url("./icons8-search.svg") no-repeat;    
+    /* position: absolute;
+    right: 0;
+    top: 2px; */
+    margin: 0;
+    padding: 0;
+    width: 78px;
+    text-align: center;
+    background-position: center;
+    border: 1px solid #ddd;
+    border-left: none;    
 }
+
 .enter-name{
     font-size: 14px;
     font-weight: 500;
@@ -99,9 +119,53 @@ body{
     color: #949292;
     line-height: 27px;
 }
+/* filter */
+.sub_header{
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.result--count{
+    flex: 5;
+}
+.result--countp{
+    font-size: 18px;
+    font-weight: 500;
+}
+.filter--count{
+    padding-top: 10px;
+}
 
-
-  
+.filter--count button{
+    background: transparent;    
+    border: none;
+    width: 100px;
+    display: flex;
+    cursor: pointer;
+}
+.filter--count h6,
+.filter--count img{
+    display: inline-block;
+}
+.filter--count img{
+    width: 30px;
+    padding-right: 4px;
+}
+.filter--count h6{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 3px;
+    color: #444;
+}
+.center-image{
+    width: 100%;
+    text-align: center;
+}
+.center-image img{
+    width: 200px;
+}
 /* simple media query  */
 @media (max-width: 1400px){
     .container {
@@ -118,6 +182,7 @@ body{
     .sub--container{
         width: 80%; 
     }
+    .App-header .row{width: 80%; }
 }
 @media (max-width: 991px){
     .container {
@@ -127,6 +192,7 @@ body{
         width: 100%; 
         padding: 20px 0;
     }
+    .App-header .row{width: 100%; }
     .box--image,
     .box--data{
         flex: 1;
@@ -151,4 +217,5 @@ body{
     .sub--container{
         width: 100%; 
     }
+    .App-header .row{width: 100%; }
 }

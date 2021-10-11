@@ -11,8 +11,17 @@ const reducer = (state = [], action) => {
             return {
                 ...reduced,
                 data: action.payload.data.items
+            };  
+        case "Sub_header_YOUTUBE":
+            return {
+                ...reduced,
+                subHeader: action.payload.data.pageInfo
             };
-
+        case "Loading_DATA_YOUTUBE":
+            return {
+                ...reduced,
+                Loading: true
+            };        
         default:
             return state;
     }
