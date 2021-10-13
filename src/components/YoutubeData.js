@@ -45,10 +45,17 @@ export const YoutubeData = (props) => {
                                     )
                                 })                        
                             :
-                            
-                            <div className='center-image'>
-                                <img src={LoadingImage}/>
-                            </div>                            
+                            props.subHeader?
+                                props.subHeader.resultsPerPage == 0 ? 
+                                <h2>no Data found</h2>
+                                :
+                                    <div className='center-image'>
+                                        <img src={LoadingImage}/>
+                                    </div>                            
+                            :
+                                    <div className='center-image'>
+                                        <img src={LoadingImage}/>
+                                    </div>                                    
                     :
                         <h2 className='enter-name'>Please Search for Video or channel</h2>
 
@@ -60,7 +67,8 @@ export const YoutubeData = (props) => {
 
 const mapStateToProps = (state) => ({
     SearchData: state.data,
-    LoadingData: state.Loading
+    LoadingData: state.Loading,
+    subHeader: state.subHeader,
 });
 export default connect(
     mapStateToProps

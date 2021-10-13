@@ -21,6 +21,11 @@ const reducer = (state = [], action) => {
             return {
                 ...reduced,
                 Loading: true
+            }; 
+        case "VALUE_OF_SEARCH":
+            return {
+                ...reduced,
+                SeachValue: action.payload
             };        
         default:
             return state;

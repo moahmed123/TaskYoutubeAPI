@@ -1,9 +1,15 @@
-import React from "react";
-import { connect } from "../store";
+import React, { useState, useContext } from "react";
+import { Store, connect } from "../store";
 import NounFilter from '../noun_filter.svg';
+import axios from "axios";
+import Pth from '../action/paths'
+// import { useState } from "react";
 
-export const SubHeader = (props) => {    
+export const SubHeader = (props) => { 
+    const { dispatch } = useContext(Store);   
     const data = props.subHeader;
+    const [filter, SetFilter] = useState(false);    
+
     console.log("data", data)
     if(data){
         return (                  
@@ -14,11 +20,34 @@ export const SubHeader = (props) => {
                     </p>
                 </div> 
                 <div className='filter--count'>
-                    <button onClick={()=> console.log('Filter Data ')}> 
+                    <button onClick={()=> SetFilter(true)}> 
                         <img src={NounFilter}/>
                         <h6>Fillter</h6>
                     </button>
-                </div>                                       
+                </div> 
+                {
+                   filter?
+                        <div className='popup--filter'>
+                            <span className='closs-popups' onClick={()=> SetFilter(false)} >X</span>
+                            <h4>Filter By :</h4>
+                            <ul>
+                                <li onClick={async()=>{                                     
+                                     try {
+                                        const response = await axios.get(Pth.api + props.SearchValue + "&order=rating");                                                                                
+                                        dispatch({ type: "SEARCH_DATA_YOUTUBE", payload: response });
+                                        dispatch({ type: "Sub_header_YOUTUBE", payload: response });
+                                        //close popups.
+                                        SetFilter(false)
+                                    } catch (error) {
+                                        console.error(error);
+                                    }
+                                    }}> Rating </li>
+                            </ul>    
+                        </div>                                      
+                    : 
+                        null
+                }
+                
             </div>            
         )
     }else{
@@ -26,7 +55,8 @@ export const SubHeader = (props) => {
     }
 }
 const mapStateToProps = (state) => ({
-    subHeader: state.subHeader
+    subHeader: state.subHeader,
+    SearchValue: state.SeachValue
 });
 export default connect(
     mapStateToProps

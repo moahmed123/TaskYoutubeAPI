@@ -2,18 +2,20 @@ import React, { useContext, useRef} from "react";
 import { Store, connect } from "../store";
 import axios from "axios";
 import LoadingBar from 'react-top-loading-bar';
+import Pth from '../action/paths'
 
 function Search() {
     const { dispatch } = useContext(Store);
     const exampleInput = useRef();    
-    const ref = useRef(null)
-    // Please Add Your Key
-    const URl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCXK38OHkrqdDN2rFM4MQGZCvgJK5u3VH8&type=video&maxResults=15&q=";
+    const ref = useRef(null);    
+    // Please Add Your Key    
     async function YoutubeSearch(e) {
         e.preventDefault();
         
         const inputValue = exampleInput.current.value;
         console.log(inputValue);
+        // VALUE_OF_SEARCH
+        dispatch({ type: "VALUE_OF_SEARCH", payload: inputValue });
         // Loading to Wait Data 
         dispatch({ type: "Loading_DATA_YOUTUBE", payload: true });
 
@@ -23,7 +25,7 @@ function Search() {
             //staticStart
             ref.current.staticStart();
             try {
-                const response = await axios.get(URl + inputValue);
+                const response = await axios.get(Pth.api + inputValue);
                 // const data = JSON.parse(response);
                 // const Items = data.items
                 dispatch({ type: "SEARCH_DATA_YOUTUBE", payload: response });
